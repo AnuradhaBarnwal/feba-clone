@@ -20,7 +20,7 @@ app.post('/email', checkEmail)
 app.post('/user', db.createUser)
 
 app.get('/', (req, res) => {
-    mailer('Anuradha Jha', 'anu.barnwal24@gmail.com')
+    // mailer('Anuradha Jha', 'anu.barnwal24@gmail.com')
 
     res.send('Hello this is a demo app')
 })
