@@ -4,6 +4,7 @@ const db = require('./database/db')
 const bodyParser = require('body-parser')
 const cron = require('node-cron')
 const cors = require('cors');
+// var cronJob = require('cron').CronJob
 
 
 var app = express()
@@ -25,10 +26,15 @@ app.get('/', (req, res) => {
     res.send('Hello this is a demo app')
 })
 
-cron.schedule('14 22 * * *', () => {
+cron.schedule('28 22 * * *', () => {
     console.log("Cron job running")
     db.getUsers()
+}, {
+    scheduled: true,
+    timezone: "Asia/Kolkata"
 });
+
+
 
 // task.start();
 
