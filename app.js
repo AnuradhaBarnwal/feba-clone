@@ -25,13 +25,12 @@ app.get('/', (req, res) => {
     res.send('Hello this is a demo app')
 })
 
-var task = cron.schedule('* * * * *', () => {
-    db.getUserById()
+var task = cron.schedule('*/10 * * * * *', () => {
+    app.get('/users', db.getUsers)
 });
 
 // task.start();
 
-app.get('/users', db.getUsers)
 
 const port = process.env.PORT || 4000
 
