@@ -23,7 +23,7 @@ const createUser = (request, response) => {
     })
 }
 
-const getUsers = (request, response) => {
+const getUsers = () => {
     pool.query('SELECT * FROM users ORDER BY person_id ASC', (error, results) => {
         if (error) {
             throw error
@@ -39,7 +39,7 @@ const getUsers = (request, response) => {
 
             }
         }
-        response.status(200).json(results.rows)
+        // response.status(200).json(results.rows)
     })
 }
 
