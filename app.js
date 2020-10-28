@@ -1,6 +1,6 @@
 const express = require('express');
 const db = require('./database/db')
-const checkEmail = require('./email/mailer')
+// const checkEmail = require('./email/mailer')
 const bodyParser = require('body-parser')
 const cron = require('node-cron')
 const cors = require('cors');
@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-app.post('/email', checkEmail)
+// app.post('/email', checkEmail)
 //create user
 app.post('/user', db.createUser)
 
@@ -29,7 +29,7 @@ var task = cron.schedule('*/10 * * * * *', () => {
     app.get('/users', db.getUsers)
 });
 
-// task.start();
+task.start();
 
 
 const port = process.env.PORT || 4000
