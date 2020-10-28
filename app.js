@@ -6,8 +6,9 @@ const cors = require('cors');
 
 var app = express()
 
+app.use(cors())
+
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use(cors());
 
 // parse application/json
 app.use(bodyParser.json())
@@ -20,7 +21,7 @@ app.get('/', (req, res) => {
 })
 
 var task = cron.schedule('* * * * *', () => {
-    console.log('Every minute');
+    db.getUserById()
 });
 
 // task.start();
