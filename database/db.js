@@ -26,7 +26,7 @@ const getUsers = (request, response) => {
             throw error
         }
         for (const data of results.rows) {
-            var tableDate = data.date.split('/')
+            var tableDate = data.dob.split('/')
             var today = new Date()
             // console.log(today.getMonth() + 1)
             if (tableDate[1] == today.getMonth() + 1 && tableDate[0] == today.getDate()) {
