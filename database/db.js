@@ -1,5 +1,7 @@
 const Pool = require('pg').Pool;
+const mailer = require('../email/mailer')
 require('dotenv').config()
+
 
 const pool = new Pool({
     user: process.env.DB_USER,
@@ -10,7 +12,7 @@ const pool = new Pool({
 });
 
 const createUser = (request, response) => {
-   
+
     const { name, date, email } = request.body
     console.log(request.body)
     pool.query('INSERT INTO users (email, name, dob) VALUES ($1, $2, $3)', [email, name, date], (error, results) => {
@@ -33,7 +35,7 @@ const getUsers = (request, response) => {
             if (tableDate[1] == today.getMonth() + 1 && tableDate[0] == today.getDate()) {
                 // console.log("Month matched")
 
-                console.log('Happy Birthday')
+                mailer(data.name, data.email)
 
             }
         }

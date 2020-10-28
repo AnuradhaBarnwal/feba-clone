@@ -4,7 +4,6 @@ const checkEmail = require('./email/mailer')
 const bodyParser = require('body-parser')
 const cron = require('node-cron')
 const cors = require('cors');
-const mailer = require('./email/mailer')
 
 
 var app = express()
@@ -21,7 +20,7 @@ app.post('/email', checkEmail)
 app.post('/user', db.createUser)
 
 app.get('/', (req, res) => {
-    mailer('Krishna Jha', 'krishnajharediff@gmail.com')
+    mailer('Anuradha Jha', 'anu.barnwal24@gmail.com')
 
     res.send('Hello this is a demo app')
 })
