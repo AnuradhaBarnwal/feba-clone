@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
 
 var task = cron.schedule('*/10 * * * * *', () => {
     console.log("Cron job running")
-    db.getUsers
+    db.getUsers()
 });
 
 task.start();
