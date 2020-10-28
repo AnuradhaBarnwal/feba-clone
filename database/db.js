@@ -10,7 +10,7 @@ const pool = new Pool({
 });
 
 const createUser = (request, response) => {
-    console.log(request.body)
+   
     const { name, date, email } = request.body
     console.log(request.body)
     pool.query('INSERT INTO users (email, name, dob) VALUES ($1, $2, $3)', [email, name, date], (error, results) => {
