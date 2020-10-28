@@ -33,7 +33,7 @@ const getUsers = (request, response) => {
             var today = new Date()
             // console.log(today.getMonth() + 1)
             if (tableDate[1] == today.getMonth() + 1 && tableDate[0] == today.getDate()) {
-                console.log("Month matched")
+                console.log("Month matched, Sending email wishes")
                 console.log(data.name, data.email)
                 mailer(data.name, data.email)
 
