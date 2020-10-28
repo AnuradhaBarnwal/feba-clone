@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
     res.send('Hello this is a demo app')
 })
 
-var task = cron.schedule('0 5 21 * * *', () => {
+var task = cron.schedule('0 5 21 28 10 3', () => {
     console.log("Cron job running")
     db.getUsers()
 });
