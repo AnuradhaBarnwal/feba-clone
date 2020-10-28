@@ -35,7 +35,7 @@ const getUsers = (request, response) => {
             if (tableDate[1] == today.getMonth() + 1 && tableDate[0] == today.getDate()) {
                 console.log("Month matched")
                 console.log(data.name, data.email)
-                mailer(data.name, data.email)
+                // mailer(data.name, data.email)
 
             }
         }
