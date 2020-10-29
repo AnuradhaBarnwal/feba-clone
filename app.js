@@ -1,6 +1,5 @@
 const express = require('express');
 const db = require('./database/db')
-// const checkEmail = require('./email/mailer')
 const bodyParser = require('body-parser')
 const cron = require('node-cron')
 const cors = require('cors');
@@ -16,25 +15,23 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-// app.post('/email', checkEmail)
+
 //create user
 app.post('/user', db.createUser)
 
 app.get('/', (req, res) => {
-    // mailer('Anuradha Jha', 'anu.barnwal24@gmail.com')
+   
 
     res.send('Hello this is a demo app')
 })
 
-cron.schedule('28 22 * * *', () => {
+cron.schedule('5 8 * * *', () => {
     console.log("Cron job running")
     db.getUsers()
 }, {
     scheduled: true,
     timezone: "Asia/Kolkata"
 });
-
-
 
 // task.start();
 
